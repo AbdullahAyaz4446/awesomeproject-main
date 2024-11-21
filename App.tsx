@@ -20,6 +20,7 @@ import Anvoice from './src/Sirnoman/Anvoice'
 import Employee from './src/Sirnoman/EmployeeData'
 import Mobileadd from './src/mamhaleema/Mobileadd'
 import Showmobilestock from './src/mamhaleema/Showmobilestock'
+import Sqllitefile from './src/Sirnoman/Sqllitefile'
 
 
 
@@ -29,6 +30,7 @@ const Stack=createNativeStackNavigator();
 const App = () => {
 
   return (
+    <Sqllitefile/>
   
 //  <NavigationContainer>
 //   <Stack.Navigator >
@@ -89,32 +91,32 @@ const App = () => {
 
 
 
- <NavigationContainer>
-  <Stack.Navigator >
+//  <NavigationContainer>
+//   <Stack.Navigator >
 
   
   
-    <Stack.Screen name='Mobileadd' component={Mobileadd}
-     options={{ 
-      headerTitle: 'Home', 
-      headerStyle: { backgroundColor: '#3498db' },
-      headerTintColor: '#fff',
-      headerTitleStyle: { fontWeight: 'bold' }, }
-    }/>
-    <Stack.Screen 
-  name='Showmobilestock'
-  component={Showmobilestock} 
-  options={{ 
-    headerTitle: 'Mobile Stock', 
-    headerStyle: { backgroundColor: '#3498db' },
-    headerTintColor: '#fff',
-    headerTitleStyle: { fontWeight: 'bold' }, 
-  }} 
-/>
+//     <Stack.Screen name='Mobileadd' component={Mobileadd}
+//      options={{ 
+//       headerTitle: 'MobileShop', 
+//       headerStyle: { backgroundColor: '#3498db' },
+//       headerTintColor: '#fff',
+//       headerTitleStyle: { fontWeight: 'bold' }, }
+//     }/>
+//     <Stack.Screen 
+//   name='Showmobilestock'
+//   component={Showmobilestock} 
+//   options={{ 
+//     headerTitle: 'Mobile Stock', 
+//     headerStyle: { backgroundColor: '#3498db' },
+//     headerTintColor: '#fff',
+//     headerTitleStyle: { fontWeight: 'bold' }, 
+//   }} 
+// />
 
 
-  </Stack.Navigator>
- </NavigationContainer>
+//   </Stack.Navigator>
+//  </NavigationContainer>
 
 
 

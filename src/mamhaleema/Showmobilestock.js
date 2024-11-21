@@ -5,10 +5,10 @@ const Showmobilestock = ({ route }) => {
   const { Mobiledata } = route.params;
   const [data, setData] = useState(Mobiledata);
 
- 
   const Delete = (id) => {
     const updatedData = data.filter((item) => item.id !== id);
-    setData(updatedData);
+    setData([...updatedData]);
+    
   };
 
   const Showdata = ({ item }) => {
@@ -17,7 +17,7 @@ const Showmobilestock = ({ route }) => {
         <Text style={styles.text}>Product ID: {item.id}</Text>
         <Text style={styles.text}>Name: {item.name}</Text>
         <Text style={styles.text}>Category: {item.caterogry}</Text>
-       
+        <Text style={styles.text}>Price: {item.Price}</Text>
         <Text style={styles.text}>Quality: {item.qa}</Text>
         <View style={styles.buttonContainer}>
           <Button
@@ -32,13 +32,14 @@ const Showmobilestock = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      
+      { data.length > 0 ? 
         <FlatList
           data={data}
           renderItem={Showdata}
-         
+       
         />
-     
+        : <Text style={styles.noDataText}>No Data</Text>
+      }
     </View>
   );
 };

@@ -21,32 +21,38 @@ const Mobileadd = () => {
       },
     ]
     const Adddata = () => {
-        const Mobile = { id: id + 1, name: mobilename, caterogry: caterogry, qa: qality};
+        const Mobile = { id: id + 1, name: mobilename, caterogry: caterogry, qa: qality ,Price:Price};
         setmobiledata([...Mobiledata, Mobile]);
         setid(id + 1);
         Alert.alert('Data successfully added');
         console.log(Mobile);
+        setmobilename('');
+        setcaterogry('');
+        setqality('');
+        setprice('');
     };
     
   return (
     <View    style={{flex:1,padding:10}}>
   
-     <Text style={{textAlign:'center',fontSize:20,fontWeight:'bold'}}>Mobile Shop</Text>
+   
      <Text style={{textAlign:'left'}}>Mobilename</Text>
      <TextInput placeholder='Enter Name' value={mobilename} onChangeText={setmobilename} style={{borderRadius:10,borderWidth:1,marginBottom:10}}/>
      <Text style={{textAlign:'left'}}>Catergory</Text>
      <SelectList
      data={Mob}
      setSelected={setcaterogry}
+     placeholder='Select Mob'
      />
         <Text style={{textAlign:'left'}}>price</Text>
         <TextInput placeholder='Enter price' value={Price} onChangeText={setprice} style={{borderRadius:10,borderWidth:1,marginBottom:10}}/>
         <Text style={{textAlign:'left'}}>Qality</Text>
         <TextInput placeholder='Enter qality' value={qality} onChangeText={setqality} style={{borderRadius:10,borderWidth:1,marginBottom:10}}/>
+        <View style={{flex:1,justifyContent:'flex-end'}}>
         <Button
           mode="contained"
           rippleColor="#D1C2E0"
-          style={{ marginBottom: 20 }}
+          style={{ marginBottom: 5,borderRadius:5 }}
           onPress={Adddata}
         >
           ADD
@@ -54,12 +60,15 @@ const Mobileadd = () => {
         <Button
           mode="contained"
           rippleColor="#D1C2E0"
-          style={{ marginBottom: 20 }}
-          onPress={() => navigation.navigate('Showmobilestock', { Mobiledata: Mobiledata })}
-
+          style={{ marginBottom: 5,borderRadius:5 }}
+          onPress={() => navigation.navigate('Showmobilestock', { Mobiledata: Mobiledata})}
         >
           Show Stock
         </Button>
+        </View>
+      
+       
+       
     </View>
   )
 }

@@ -50,7 +50,6 @@ const Employee = () => {
   const Delete = (id) => {
     var D = data.filter(p => p.id != id);
     setdata([...D]);
-   
   }
 
 
