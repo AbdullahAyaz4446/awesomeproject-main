@@ -16,7 +16,7 @@ const Sqllitefile = () => {
       txn.executeSql(
         'CREATE TABLE IF NOT EXISTS Person (ID INTEGER PRIMARY KEY, pName TEXT)',
         [],
-        (txn, res) => console.log('Table Created Successfully'),
+        (txn, res) => console.log('Table Successfully opened'),
         (error) => console.log('Error creating table: ' + error.message)
       );
     });
@@ -70,7 +70,7 @@ const Sqllitefile = () => {
         (txn, res) => {
           const temparry = [];
           for (let i = 0; i < res.rows.length; i++) {
-            const p = { ID: res.rows.item(i).ID, pName: res.rows.item(i).pName };
+            const p = res.rows.item(i);
             temparry.push(p);
           }
           setdata([...temparry]);
@@ -127,24 +127,34 @@ const Sqllitefile = () => {
         );
     });
 };
-
- 
+const Deleteall = () => {
+  db.transaction((txn) => {
+      txn.executeSql(
+          `delete from person`, 
+          [],
+          (txn, res) => {
+              
+              alert(`delete successfully`);
+              setId('');
+              setName('');
+              setdata([...emptyarr])
+             
+          },
+          (error) => console.log('Error updating data: ' + error.message)
+      );
+  });
+};
 
   useEffect(() => {
     createTable();
   }, []);
-
-
-
-  
-
-
   const renderItem = ({ item }) => (
     <View style={styles.card}>
         <Text style={styles.cardText}>ID: {item.ID}</Text>
       <Text style={styles.cardText}>Name: {item.pName}</Text>
     </View>
   );
+  const emptyarr=[];
 
   return (
     <View style={styles.container}>
@@ -161,6 +171,7 @@ const Sqllitefile = () => {
         value={name}
         onChangeText={setName}
       />
+      <View style={{flexDirection:'row',justifyContent:'space-around'}}>
       <Button
         mode="contained"
         labelStyle={{ fontSize: 20 }}
@@ -177,6 +188,11 @@ const Sqllitefile = () => {
       >
         Show by ID
       </Button>
+  
+      </View>
+      <View style={{flexDirection:'row',justifyContent:'space-around'}}>
+
+     
       <Button
         mode="contained"
         labelStyle={{ fontSize: 20 }}
@@ -198,6 +214,10 @@ const Sqllitefile = () => {
       >
         Delete
       </Button>
+      </View>
+      <View  style={{flexDirection:'row',justifyContent:'space-around'}}>
+
+  
       <Button
         mode="contained"
         labelStyle={{ fontSize: 20 }}
@@ -206,6 +226,26 @@ const Sqllitefile = () => {
       >
         Update
       </Button>
+      <Button
+        mode="contained"
+        labelStyle={{ fontSize: 20 }}
+        style={styles.button}
+        onPress={()=>{
+          setdata([...emptyarr])
+        }}
+      >
+        Reset
+      </Button>
+      </View>
+      <Button
+        mode="contained"
+        labelStyle={{ fontSize: 20 }}
+        style={styles.button}
+        onPress={Deleteall}
+      >
+        Delete All
+      </Button>
+
       {hide && (
                 <FlatList
                     data={Data}

@@ -21,6 +21,7 @@ import Employee from './src/Sirnoman/EmployeeData'
 import Mobileadd from './src/mamhaleema/Mobileadd'
 import Showmobilestock from './src/mamhaleema/Showmobilestock'
 import Sqllitefile from './src/Sirnoman/Sqllitefile'
+import Resturentmenu from './src/Sirnoman/Resturentmenu'
 
 
 
@@ -30,7 +31,7 @@ const Stack=createNativeStackNavigator();
 const App = () => {
 
   return (
-    <Sqllitefile/>
+   <Resturentmenu/>
   
 //  <NavigationContainer>
 //   <Stack.Navigator >
