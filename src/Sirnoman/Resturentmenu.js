@@ -79,7 +79,8 @@ const Resturentmenu = () => {
                     setSelected={setDest}
                     placeholder="Select Price"
                     search={false}
-                    save="value"
+                    save='value'
+
                     onSelect={findRoutes}
                 />
             </View>
