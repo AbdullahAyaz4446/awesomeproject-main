@@ -31,7 +31,7 @@ const Stack=createNativeStackNavigator();
 const App = () => {
 
   return (
-   <Resturentmenu/>
+  <Sqllitefile/>
   
 //  <NavigationContainer>
 //   <Stack.Navigator >
