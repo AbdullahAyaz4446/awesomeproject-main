@@ -22,6 +22,7 @@ import Mobileadd from './src/mamhaleema/Mobileadd'
 import Showmobilestock from './src/mamhaleema/Showmobilestock'
 import Sqllitefile from './src/Sirnoman/Sqllitefile'
 import Resturentmenu from './src/Sirnoman/Resturentmenu'
+import Parkingapp from './src/Sirnoman/ Parkingapp';
 
 
 
@@ -31,7 +32,7 @@ const Stack=createNativeStackNavigator();
 const App = () => {
 
   return (
-  <Sqllitefile/>
+<Parkingapp/>
   
 //  <NavigationContainer>
 //   <Stack.Navigator >
