@@ -23,6 +23,9 @@ import Showmobilestock from './src/mamhaleema/Showmobilestock'
 import Sqllitefile from './src/Sirnoman/Sqllitefile'
 import Resturentmenu from './src/Sirnoman/Resturentmenu'
 import Parkingapp from './src/Sirnoman/ Parkingapp';
+import Billcalcultor from './src/Sirnoman/Billcalcultor'
+import Social from './src/Sirnoman/Socialapp'
+import Car from './src/Sirnoman/Car'
 
 
 
@@ -32,8 +35,8 @@ const Stack=createNativeStackNavigator();
 const App = () => {
 
   return (
+
 <Parkingapp/>
-  
 //  <NavigationContainer>
 //   <Stack.Navigator >
 //     <Stack.Screen name='Home' component={Homeform}

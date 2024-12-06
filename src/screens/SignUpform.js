@@ -94,7 +94,7 @@ const SignUpform = ({route}) => {
             </TouchableOpacity>
             <Text style={{textAlign:'center'}}>-------------------------------------or--------------------------------------</Text>
             <TouchableOpacity  style={styles.buttonlogo}>
-                 <Image source={require('/Users/macbookpro/awesomeproject/src/images/google.png')} style={{width:150,height:150}} />
+                 {/* <Image source={require('/Users/macbookpro/awesomeproject/src/images/google.png')} style={{width:150,height:150}} /> */}
             </TouchableOpacity>
             </ScrollView>
          
