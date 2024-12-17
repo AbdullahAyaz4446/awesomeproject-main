@@ -3,22 +3,56 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import SignUpnotepad from './Signupformnotes';
+import { openDatabase } from 'react-native-sqlite-storage';
 
-
+const db = openDatabase({ name: 'NotepadDb.db' });
 const LoginFormnotepad = () => {
+
     const nav = useNavigation();
-    const [id, setid] = useState('');
     const [name, setName] = useState('');
-    const [email, setemail] = useState('');
     const [password, setPassword] = useState('');
-    const [cpassword, setcpassword] = useState('')
-    const [gender, setgender] = useState('');
-    const [active, setactive] = useState('');
-    const [materital, setmaterital] = useState('');
-    const [graduated, setGraduated] = useState('');
-    const [data, setdata] = useState([]);
-    const [message, setMessage] = useState("");
-    const [color, setColor] = useState("");
+    const [message, setMessage] = useState('');
+    const [color, setColor] = useState('');
+  
+    const Serachdata = () => {
+        if (!name || !password) {
+          setMessage('All fields are required');
+          setColor('red');
+          return;
+        }
+      
+        db.transaction((txn) => {
+          txn.executeSql(
+            `SELECT * FROM Person WHERE Name = ? AND Password = ?`,
+            [name, password],
+            (txn, res) => {
+              if (res.rows.length > 0) {
+                console.log(res.rows.item(0))
+                const dbId=(res.rows.item(0).ID);
+                const dbname=(res.rows.item(0).Name);
+            
+                console.log(name)
+                console.log(dbId)
+              
+                if (name == dbname) {
+                  setName('');
+                  setPassword('');
+                  nav.navigate('Home', { id: dbId });  
+                } else {
+                  setMessage('Please sign up, no data found');
+                  setColor('red');
+                }
+              } else {
+                setMessage('No data found');
+                setColor('red');
+              }
+            },
+            (error) => console.log('Error searching data: ' + error.message)
+          );
+        });
+      };
+      
+
     return (
         <View style={styles.main}>
             {/* <Image source={require('/Users/macbookpro/awesomeproject/Content/images/undraw_Login_re_4vu2-2-removebg-preview.png')} style={styles.logo} /> */}
@@ -48,12 +82,13 @@ const LoginFormnotepad = () => {
                     <Text style={{ color: color, textAlign: 'right' }}>{message}</Text>
                 </View>
 
-                <TouchableOpacity onPress={()=>nav.navigate('Home')} style={styles.button}>
+                <TouchableOpacity onPress={Serachdata} style={styles.button}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>nav.navigate('Signup')} style={styles.button}>
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
+                 
             </ScrollView>
 
         </View>
