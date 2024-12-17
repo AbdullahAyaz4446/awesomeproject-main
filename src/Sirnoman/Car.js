@@ -1,10 +1,12 @@
 import { Button, StyleSheet, Text, TextInput, View, FlatList } from 'react-native';
 import React, { useState } from 'react';
+import { SelectList } from 'react-native-dropdown-select-list';
 
 const Car = () => {
     const [startAmount, setStartAmount] = useState('');
     const [endAmount, setEndAmount] = useState('');
     const [filteredData, setFilteredData] = useState(data);
+    const[car,setcar]=useState();
 
     const data = [
         { company: "Toyota", series: "Corolla", model: "2023", price: 3000000, mileage: "16 km/l" },
@@ -17,14 +19,38 @@ const Car = () => {
         { company: "Nissan", series: "Sunny", model: "2021", price: 3200000, mileage: "17 km/l" },
         { company: "BMW", series: "X1", model: "2023", price: 15000000, mileage: "11 km/l" },
         { company: "Mercedes", series: "C-Class", model: "2023", price: 20000000, mileage: "10 km/l" },
+        { company: "Toyota", series: "Corolla", model: "2023", price: 4500000, mileage: "10 km/l" }
     ];
+    const cardata = [
+        {
+            key: '1', value: 'Toyota'
+        },
+        {
+            key: '2', value: 'BMW'
+        },
+        {
+            key: '3', value: 'Nissan'
+        },{
+              key: '4', value: 'Hyundai'
+        },
+        {
+             key: '5', value: 'Suzuki'
+        },{
+              key: '6', value: 'MG'
+        }
+
+
+    ]
 
     const handleSearch = () => {
         const start = parseInt(startAmount) || 0;
         const end = parseInt(endAmount) || Number.MAX_VALUE;
 
-        const filtered = data.filter(item => item.price >= start && item.price <= end);
+        const filtered = data.filter(item => item.price >= start && item.price <= end&&item.company==car);
         setFilteredData(filtered);
+        setcar("");
+        setStartAmount("");
+        setEndAmount("");
         
     };
 
@@ -42,6 +68,12 @@ const Car = () => {
                 <Text style={styles.headertext}>Car Shop</Text>
             </View>
             <View style={styles.body}>
+                <SelectList data={cardata} 
+                onSelect={handleSearch}
+                setSelected={setcar}
+                 save='value'
+                
+                />
                 <Text style={styles.text}>Provide Amount Range</Text>
                 <View style={styles.inputContainer}>
                     <View style={styles.textInput}>
@@ -65,9 +97,7 @@ const Car = () => {
                         />
                     </View>
                 </View>
-                <View style={styles.buttonContainer}>
-                    <Button title="Search" onPress={handleSearch} />
-                </View>
+               
                 <FlatList
                     data={filteredData}
                     renderItem={renderCarItem}

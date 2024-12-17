@@ -32,11 +32,11 @@ const SignUpform = ({route}) => {
   };
     return (
         <View style={styles.main}>
-          {/* <TouchableOpacity style={{  position: 'absolute',
+          <TouchableOpacity style={{  position: 'absolute',
     top: 20,
     left: 20}}>
           <Ionicons name="arrow-back-circle" size={45} />
-          </TouchableOpacity> */}
+          </TouchableOpacity>
             <LottieView source={require('../animation/Animation - 1730561905049.json')} autoPlay loop style={styles.logo} />
             <Text style={styles.text}>Sign Up 🔏</Text>
             <ScrollView showsVerticalScrollIndicator={false}>

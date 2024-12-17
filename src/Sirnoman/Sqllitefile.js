@@ -75,8 +75,6 @@ const Sqllitefile = () => {
           }
           setdata([...temparry]);
 
-          console.log(temparry);
-          
         },
         (error) => console.log('Error Getting all data: ' + error.message)
       );
@@ -138,6 +136,7 @@ const Deleteall = () => {
               setId('');
               setName('');
               setdata([...emptyarr])
+              
              
           },
           (error) => console.log('Error updating data: ' + error.message)
@@ -147,6 +146,7 @@ const Deleteall = () => {
 
   useEffect(() => {
     createTable();
+    Getalldata();
   }, []);
   const renderItem = ({ item }) => (
     <View style={styles.card}>

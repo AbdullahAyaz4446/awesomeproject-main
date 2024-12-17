@@ -5,7 +5,7 @@ import { NavigationContainer, StackActions } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import LoginForm from './src/screens/Loginform'
 import Home from './src/screens/Home'
-import { RadioButton } from 'react-native-paper'
+import { Card, RadioButton } from 'react-native-paper'
 import Radiobutton from './src/Sirnoman/Radiobutton'
 import SignUpform from './src/screens/SignUpform'
 import Login from './src/mamhaleema/Employee'
@@ -26,6 +26,13 @@ import Parkingapp from './src/Sirnoman/ Parkingapp';
 import Billcalcultor from './src/Sirnoman/Billcalcultor'
 import Social from './src/Sirnoman/Socialapp'
 import Car from './src/Sirnoman/Car'
+import Carsqllite from './src/Sirnoman/Carsqllite'
+import Longpress from './src/Sirnoman/Longpress'
+import Homescreen from './src/AssignmentNotebiiksqllite.js/Homescreen'
+import Notepad from './src/AssignmentNotebiiksqllite.js/Notepad'
+import Eidit from './src/AssignmentNotebiiksqllite.js/Eidit'
+import Loginformnotes from './src/AssignmentNotebiiksqllite.js/Loginformnotes'
+import SignUpnotepad from './src/AssignmentNotebiiksqllite.js/Signupformnotes'
 
 
 
@@ -35,8 +42,38 @@ const Stack=createNativeStackNavigator();
 const App = () => {
 
   return (
+ <NavigationContainer>
+  <Stack.Navigator>
 
-<Parkingapp/>
+  <Stack.Screen 
+      name="Login" 
+      component={Loginformnotes}
+      options={{ headerShown: false }} 
+    />
+    <Stack.Screen 
+      name="Signup" 
+      component={SignUpnotepad}
+      options={{ headerShown: false }} 
+    />
+   
+     <Stack.Screen 
+      name="Home" 
+      component={Homescreen}
+      options={{ headerShown: false }} 
+    />
+      <Stack.Screen 
+      name="Notepad" 
+      component={Notepad}
+      options={{ headerShown: false }} 
+    />
+     <Stack.Screen 
+      name="Eidit" 
+      component={Eidit}
+      options={{ headerShown: false }} 
+    />
+  </Stack.Navigator>
+</NavigationContainer> 
+
 //  <NavigationContainer>
 //   <Stack.Navigator >
 //     <Stack.Screen name='Home' component={Homeform}
