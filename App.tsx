@@ -33,6 +33,8 @@ import Notepad from './src/AssignmentNotebiiksqllite.js/Notepad'
 import Eidit from './src/AssignmentNotebiiksqllite.js/Eidit'
 import Loginformnotes from './src/AssignmentNotebiiksqllite.js/Loginformnotes'
 import SignUpnotepad from './src/AssignmentNotebiiksqllite.js/Signupformnotes'
+import Dataformwithimag from './src/Sirnoman/Dataformwithimag'
+import Showdata from './src/Api/Showdata'
 
 
 
@@ -42,37 +44,42 @@ const Stack=createNativeStackNavigator();
 const App = () => {
 
   return (
- <NavigationContainer>
-  <Stack.Navigator>
 
-  <Stack.Screen 
-      name="Login" 
-      component={Loginformnotes}
-      options={{ headerShown: false }} 
-    />
-    <Stack.Screen 
-      name="Signup" 
-      component={SignUpnotepad}
-      options={{ headerShown: false }} 
-    />
+<Showdata/>
+    // <Dataformwithimag/>
+//  <NavigationContainer>
+//   <Stack.Navigator>
+
+//   <Stack.Screen 
+//       name="Login" 
+//       component={Loginformnotes}
+//       options={{ headerShown: false }} 
+//     />
+//     <Stack.Screen 
+//       name="Signup" 
+//       component={SignUpnotepad}
+//       options={{ headerShown: false }} 
+//     />
    
-     <Stack.Screen 
-      name="Home" 
-      component={Homescreen}
-      options={{ headerShown: false }} 
-    />
-      <Stack.Screen 
-      name="Notepad" 
-      component={Notepad}
-      options={{ headerShown: false }} 
-    />
-     <Stack.Screen 
-      name="Eidit" 
-      component={Eidit}
-      options={{ headerShown: false }} 
-    />
-  </Stack.Navigator>
-</NavigationContainer> 
+//      <Stack.Screen 
+//       name="Home" 
+//       component={Homescreen}
+//       options={{ headerShown: false }} 
+//     />
+//       <Stack.Screen 
+//       name="Notepad" 
+//       component={Notepad}
+//       options={{ headerShown: false }} 
+//     />
+//      <Stack.Screen 
+//       name="Eidit" 
+//       component={Eidit}
+//       options={{ headerShown: false }} 
+//     />
+   
+
+//   </Stack.Navigator>
+// </NavigationContainer> 
 
 //  <NavigationContainer>
 //   <Stack.Navigator >

@@ -2,9 +2,10 @@ import { Pressable, StyleSheet, Text, TouchableOpacity, View, FlatList ,Alert} f
 import React, { useState, useEffect } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { RadioButton } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+import { Drawer, RadioButton } from 'react-native-paper';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { openDatabase } from 'react-native-sqlite-storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const db = openDatabase({ name: 'NotepadDb.db' });
 
@@ -79,7 +80,9 @@ const Homescreen = ({ route }) => {
     );
   };
 
+
   return (
+   
     <View style={styles.main}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => nav.goBack()}>
