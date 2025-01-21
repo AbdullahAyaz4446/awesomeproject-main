@@ -12,7 +12,7 @@ const Showdata = () => {
  
   const alldata= async ()=>{
     try {
-      const response= await fetch('http://192.168.185.68/reactnative/api/user/allusers');
+      const response= await fetch('http://168.254.224.237/reactnative/api/user/allusers');
       if(!response.ok){
         throw new Error('sorry beta try again');
       }
@@ -33,7 +33,7 @@ const Showdata = () => {
       password:password
     }
     try {
-      const response= await fetch('http://192.168.185.68/reactnative/api/user/addusers',{
+      const response= await fetch('http://168.254.224.237/reactnative/api/user/addusers',{
         method:'POST',
         headers:{
           'content-type':'application/json'

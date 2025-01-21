@@ -45,41 +45,41 @@ const App = () => {
 
   return (
 
-<Showdata/>
+
     // <Dataformwithimag/>
-//  <NavigationContainer>
-//   <Stack.Navigator>
+ <NavigationContainer>
+  <Stack.Navigator>
 
-//   <Stack.Screen 
-//       name="Login" 
-//       component={Loginformnotes}
-//       options={{ headerShown: false }} 
-//     />
-//     <Stack.Screen 
-//       name="Signup" 
-//       component={SignUpnotepad}
-//       options={{ headerShown: false }} 
-//     />
+  <Stack.Screen 
+      name="Login" 
+      component={Loginformnotes}
+      options={{ headerShown: false }} 
+    />
+    <Stack.Screen 
+      name="Signup" 
+      component={SignUpnotepad}
+      options={{ headerShown: false }} 
+    />
    
-//      <Stack.Screen 
-//       name="Home" 
-//       component={Homescreen}
-//       options={{ headerShown: false }} 
-//     />
-//       <Stack.Screen 
-//       name="Notepad" 
-//       component={Notepad}
-//       options={{ headerShown: false }} 
-//     />
-//      <Stack.Screen 
-//       name="Eidit" 
-//       component={Eidit}
-//       options={{ headerShown: false }} 
-//     />
+     <Stack.Screen 
+      name="Home" 
+      component={Homescreen}
+      options={{ headerShown: false }} 
+    />
+      <Stack.Screen 
+      name="Notepad" 
+      component={Notepad}
+      options={{ headerShown: false }} 
+    />
+     <Stack.Screen 
+      name="Eidit" 
+      component={Eidit}
+      options={{ headerShown: false }} 
+    />
    
 
-//   </Stack.Navigator>
-// </NavigationContainer> 
+  </Stack.Navigator>
+</NavigationContainer> 
 
 //  <NavigationContainer>
 //   <Stack.Navigator >

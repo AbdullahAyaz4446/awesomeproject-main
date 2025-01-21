@@ -19,10 +19,6 @@ const SignUpnotepad = () => {
   const [city, setCity] = useState('');
   const [message, setMessage] = useState('');
   const [color, setColor] = useState('');
-
-
-
-
   const createTable = () => {
     db.transaction((txn) => {
       txn.executeSql(
